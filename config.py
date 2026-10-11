@@ -4,8 +4,8 @@ HEIGHT = 700
 FPS = 60
 
 # physics
-G = 500             # gravitational constant — tweak this to change how strong gravity is
-DT = 0.016          # time step per frame (~1/60)
+G = 50             # gravitational constant — tweak this to change how strong gravity is
+DT = 0.05         # time step per frame (~1/60)
 SOFTENING = 10      # prevents division by zero when particles are very close
 MIN_MERGE_DIST = 8  # particles closer than this merge into one
 

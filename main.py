@@ -8,19 +8,21 @@ from config import WIDTH, HEIGHT, FPS, BG_COLOR, DT, DEFAULT_MASS, HEAVY_MASS
 def solar_system() -> list[Particle]:
     sun = Particle(WIDTH // 2, HEIGHT // 2, 0, 0, mass=800)
     sun.color = (255, 220, 80)
-    p1 = Particle(WIDTH // 2 + 150, HEIGHT // 2, 0, -3, mass=30)
-    p2 = Particle(WIDTH // 2 - 200, HEIGHT // 2, 0, 2.5, mass=50)
-    p3 = Particle(WIDTH // 2, HEIGHT // 2 - 180, 2.8, 0, mass=20)
+    # v = sqrt(G * M_sun / r) for each planet
+    p1 = Particle(WIDTH // 2 + 150, HEIGHT // 2, 0, -16.3, mass=30)
+    p2 = Particle(WIDTH // 2 - 200, HEIGHT // 2, 0, 14.1, mass=50)
+    p3 = Particle(WIDTH // 2, HEIGHT // 2 - 180, 14.9, 0, mass=20)
     return [sun, p1, p2, p3]
 
 
 def binary_system() -> list[Particle]:
-    s1 = Particle(400, 350, 0, -1.5, mass=400)
-    s2 = Particle(600, 350, 0, 1.5, mass=400)
+    # d=200 apart, v = sqrt(G * M / (2*d)) for equal-mass binary
+    s1 = Particle(400, 350, 0, -7.1, mass=400)
+    s2 = Particle(600, 350, 0, 7.1, mass=400)
     s1.color = (255, 50, 50)
     s2.color = (50, 50, 255)
-    p1 = Particle(WIDTH // 2 + 150, HEIGHT // 2, 0, -3, mass=30)
-    p2 = Particle(WIDTH // 2 - 200, HEIGHT // 2, 0, 2.5, mass=50)
+    p1 = Particle(500, 200, 5, 0, mass=20)
+    p2 = Particle(500, 500, -5, 0, mass=20)
     return [s1, s2, p1, p2]
 
 
@@ -30,9 +32,9 @@ def chaos_system() -> list[Particle]:
         p = Particle(
             random.uniform(0, WIDTH),
             random.uniform(0, HEIGHT),
-            random.uniform(-1, 1),
-            random.uniform(-1, 1),
-            random.uniform(20, 100)
+            random.uniform(-8, 8),
+            random.uniform(-8, 8),
+            random.uniform(20, 150)
         )
         particles.append(p)
     return particles
@@ -43,7 +45,7 @@ def ring_system() -> list[Particle]:
     sun.color = (255, 220, 80)
     cx, cy = WIDTH // 2, HEIGHT // 2
     radius = 200
-    speed = 2.5
+    speed = 14.1  # sqrt(G * 800 / 200)
     count = 25
 
     particles = [sun]
