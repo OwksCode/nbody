@@ -5,7 +5,7 @@ This is where the actual simulation happens.
 
 import math
 from particle import Particle
-from config import G, DT, SOFTENING, MIN_MERGE_DIST
+from config import G, DT, SOFTENING, MIN_MERGE_DIST, WIDTH, HEIGHT
 
 
 def compute_gravity(p1: Particle, p2: Particle) -> tuple[float, float]:
@@ -35,6 +35,8 @@ def update_positions(particles: list[Particle], dt: float = DT) -> None:
     for p in particles:
         p.x += p.vx * dt
         p.y += p.vy * dt
+        p.x = p.x % WIDTH
+        p.y = p.y % HEIGHT
         p.update_trail()
 
 

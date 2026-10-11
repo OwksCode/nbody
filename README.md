@@ -27,9 +27,13 @@ python main.py
 | left click + drag | launch a particle (slingshot) |
 | right click | spawn a heavy particle |
 | space | pause / resume |
-| R | reset simulation |
 | T | toggle trails |
+| C | toggle color by speed (blue=slow, red=fast) |
 | + / - | speed up / slow down time |
+| 1 | preset: solar system |
+| 2 | preset: binary star system |
+| 3 | preset: chaos (30 random particles) |
+| 4 | preset: ring orbiting a star |
 | esc | quit |
 
 ## how it works
@@ -37,7 +41,7 @@ python main.py
 Each frame the simulation:
 1. computes gravitational force between every pair of particles (F = G·m1·m2 / r²)
 2. updates velocities using Newton's second law (a = F/m)
-3. updates positions (Euler integration)
+3. updates positions (Euler integration) with screen wrapping
 4. merges colliding particles (conserving momentum)
 
 All physics are computed from scratch — no physics engine, just basic vector math.
@@ -46,7 +50,7 @@ All physics are computed from scratch — no physics engine, just basic vector m
 
 ```
 nbody/
-├── main.py             # game loop, events, pygame setup
+├── main.py             # game loop, events, presets, pygame setup
 ├── particle.py         # Particle class (position, velocity, mass, trail)
 ├── physics.py          # gravity, integration, collision handling
 ├── renderer.py         # drawing particles, trails, UI overlay
