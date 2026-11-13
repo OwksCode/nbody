@@ -41,7 +41,7 @@ python main.py
 Each frame the simulation:
 1. computes gravitational force between every pair of particles (F = G·m1·m2 / r²)
 2. updates velocities using Newton's second law (a = F/m)
-3. updates positions (Euler integration) with screen wrapping
+3. updates positions (Semi-implicit Euler method) with screen wrapping
 4. merges colliding particles (conserving momentum)
 
 All physics are computed from scratch — no physics engine, just basic vector math.
