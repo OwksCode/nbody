@@ -6,6 +6,8 @@ through gravitational force, orbit, collide and merge. Click to spawn, drag to l
 ![Python](https://img.shields.io/badge/python-3.10+-blue)
 ![Pygame](https://img.shields.io/badge/pygame-2.5+-green)
 
+<img width="800" height="560" alt="nbody-demo" src="https://github.com/user-attachments/assets/59b92432-bc3c-4bfc-9168-e8468e433624" />
+
 ## setup
 
 ```bash
