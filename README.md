@@ -59,6 +59,12 @@ nbody/
     └── test_physics.py
 ```
 
+## limitations & next steps
+
+- Gravity is computed for every ordered pair of bodies, so each pair is evaluated twice and the cost is O(n²) per frame. Next: use Newton's third law, then Barnes–Hut (O(n log n)).
+- Semi-implicit Euler is only first-order. Next: velocity Verlet, with a plot comparing energy conservation across integrators.
+- Screen wrapping isn't physical: forces ignore the wrapped geometry.
+
 ## license
 
 MIT
